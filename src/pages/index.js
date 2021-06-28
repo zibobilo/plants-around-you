@@ -1,11 +1,34 @@
 import * as React from "react"
-
+import Navbar from "../components/navbar"
+import Query from "../components/query"
+import styled from 'styled-components'
+import { ThemeProvider } from 'styled-components'
+import * as theme from "../config/theme"
 // styles
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
+const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+`;
+// Define our button, but with the use of props.theme this time
+const Button = styled.button`
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
+
+  /* Color the border and text with theme.main */
+  color: ${props => props.theme.main};
+  border: 2px solid ${props => props.theme.main};
+`;
+
+// We are passing a default theme for Buttons that arent wrapped in the ThemeProvider
+Button.defaultProps = {
+  theme: {
+    main: "palevioletred"
+  }
 }
+
 // const headingStyles = {
 //   marginTop: 0,
 //   marginBottom: 64,
@@ -128,12 +151,21 @@ const pageStyles = {
 // markup
 const IndexPage = () => {
   return (
-    <main style={pageStyles}>
+    <main>
       <title>Home Page</title>
-      <h1>HELLO</h1>
-      {fetch('http://example.com/movies.json')
+      <Title>hello there</Title>
+      <Navbar />
+      <Query />
+      <div>
+    <Button>Normal</Button>
+
+    <ThemeProvider theme={theme}>
+      <Button>Themed</Button>
+    </ThemeProvider>
+  </div>
+      {/* {fetch('http://example.com/movies.json')
   .then(response => response.json())
-  .then(data => console.log(data))}
+  .then(data => console.log(data))} */}
 
       {/* <h1 style={headingStyles}>
         Congratulations
