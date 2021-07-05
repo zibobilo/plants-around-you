@@ -1,41 +1,32 @@
 import * as React from "react"
 import Navbar from "../components/Navbar"
 import GetGeoLocation from "../components/GetGeoLocation"
-import styled from 'styled-components'
-import { ThemeProvider } from 'styled-components'
-import * as theme from "../config/theme"
+
+// import { ThemeProvider } from 'styled-components'
+// import * as theme from "../config/theme"
 
 
-// styles
-const Title = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
-`;
-// Define our button, but with the use of props.theme this time
-const Button = styled.button`
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border-radius: 3px;
 
-  /* Color the border and text with theme.main */
-  color: ${props => props.theme.main};
-  border: 2px solid ${props => props.theme.main};
-`;
+// // Define our button, but with the use of props.theme this time
+// const Button = styled.button`
+//   font-size: 1em;
+//   margin: 1em;
+//   padding: 0.25em 1em;
+//   border-radius: 3px;
 
-// We are passing a default theme for Buttons that arent wrapped in the ThemeProvider
-Button.defaultProps = {
-  theme: {
-    main: "palevioletred"
-  }
-}
+//   /* Color the border and text with theme.main */
+//   color: ${props => props.theme.main};
+//   border: 2px solid ${props => props.theme.main};
+// `;
 
-// const headingStyles = {
-//   marginTop: 0,
-//   marginBottom: 64,
-//   maxWidth: 320,
+// // We are passing a default theme for Buttons that arent wrapped in the ThemeProvider
+// Button.defaultProps = {
+//   theme: {
+//     main: "palevioletred"
+//   }
 // }
+
+
 // const headingAccentStyles = {
 //   color: "#663399",
 // }
@@ -154,16 +145,15 @@ Button.defaultProps = {
 const IndexPage = () => {
   return (
     <main>
-      <title>Home Page</title>
-      <Title>hello there</Title>
+      <title>Biodiversity</title>
       <Navbar />
       <GetGeoLocation />
       <div>
-    <Button>Normal</Button>
+    {/* <Button>Normal</Button> */}
 
-    <ThemeProvider theme={theme}>
+    {/* <ThemeProvider theme={theme}>
       <Button>Themed</Button>
-    </ThemeProvider>
+    </ThemeProvider> */}
   </div>
     </main>
   )
